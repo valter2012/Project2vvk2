@@ -1,5 +1,7 @@
 package example.dao;
 
+//import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -38,5 +40,23 @@ public class AdminUnitDao {
     public AdminUnit load(Long id) {
         return em.find(AdminUnit.class, id);
     }
+    
+//	public AdminUnit greateAdminUnit(String code, String name,
+//			String comment) {
+//
+//		AdminUnit adminUnit = new AdminUnit();
+//		adminUnit.setKood(code);
+//		adminUnit.setNimetus(name);
+//		adminUnit.setKommentaar(comment);
+//		adminUnit.setAvaja("system");// hardcoded
+//		Date date = new Date();
+//		adminUnit.setAvatud(date); // java current date
+//		adminUnit.setMuutja("system");
+//		//adminUnit.setMuudetud("9999-01-01");
+//		adminUnit.setSulgeja("system");
+//		//adminUnit.setSuletud("9999-01-01");
+//
+//		return adminUnit;
+//	}
 
 }

@@ -12,13 +12,6 @@ import javax.persistence.TemporalType;
 @Entity
 public class AdminUnit {
 
-//    kood                 VARCHAR(20),
-//    nimetus              VARCHAR(100),
-//    kommentaar           LONG VARCHAR,
-//    alates               DATE NOT NULL,
-//    kuni                 DATE NOT NULL,
-//    riigi_admin_yksuse_lik_id INTEGER NOT NULL,
-    
 	   @Id
 	   @GeneratedValue // võib panna ka täpsemalt kuidas (strategy = GenerationType.AUTO)
 	   @Column(name = "riigi_admin_yksus_ID") // nime asendus

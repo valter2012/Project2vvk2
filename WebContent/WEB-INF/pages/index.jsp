@@ -8,10 +8,6 @@
 </head>
 <body>
 	
-	<a href="counter">Isikute hulkloetelu</a><br/>
-	<a href="form">Lisa isik</a><br/>
-	<a href="list">Isikute loend</a><br/>
-	<a href="out">Miski</a><br/>
 	
 	<br/>
 	

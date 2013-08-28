@@ -33,7 +33,7 @@
     class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
     <property name="url"
-      value="jdbc:hsqldb:file:${user.home}/000/Team00d/mvcJpa;shutdown=true" />
+      value="jdbc:hsqldb:file:${user.home}/i377/Team00d/project2vvk;shutdown=true" />
     <property name="username" value="sa" />
     <property name="password" value="" />
   </bean>

@@ -10,18 +10,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class AdminUnit {
-
-//    kood                 VARCHAR(20),
-//    nimetus              VARCHAR(100),
-//    kommentaar           LONG VARCHAR,
-//    alates               DATE NOT NULL,
-//    kuni                 DATE NOT NULL,
-//    riigi_admin_yksuse_lik_id INTEGER NOT NULL,
-    
+public class AdminUnitType {
+	
 	   @Id
 	   @GeneratedValue // võib panna ka täpsemalt kuidas (strategy = GenerationType.AUTO)
-	   @Column(name = "riigi_admin_yksus_ID") // nime asendus
+	   @Column(name = "riigi_admin_yksuse_lik_id") // nime asendus
 	   private Long id;
 	   
 	   @Column(length = 32, nullable = false)
@@ -59,10 +52,7 @@ public class AdminUnit {
 	   @Column(nullable = false)
 	   private Date	 kuni;
 	   
-	   @Column(name = "riigi_admin_yksuse_lik_id") // nime asendus
-	   private Long type_id;
-	   
-	    @Override
+	   @Override
 	    public String toString() {
 	        return "[nimetus=" + nimetus + ", kood=" + kood + "]";
 	    }
@@ -161,14 +151,6 @@ public class AdminUnit {
 
 	public void setKuni(Date kuni) {
 		this.kuni = kuni;
-	}
-
-	public Long getType_id() {
-		return type_id;
-	}
-
-	public void setType_id(Long type_id) {
-		this.type_id = type_id;
 	}
 	   
 

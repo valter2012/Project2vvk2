@@ -8,7 +8,7 @@
 <title>Admin üksuse redaktor</title>
 </head>
 <body>
-
+${message}
  <c:if test="${not empty errors}">
     <div style="color:red">
       <c:forEach var="error" items="${errors}">
@@ -19,11 +19,11 @@
   </c:if>
   
   <form method="POST" action="yksuseredakt">
-  
-	 <input type="hidden" name="id" value="${adminUnit.id}">
-	 Kood: <input name="typeKey" value="${adminUnit.key}"><br/>
-	 Nimetus: <input name="typeName" value="${adminUnit.name}"><br/>
-	 Kommentaar: <input name="typeComment" value="${adminUnit.comment}"><br/>
+  		
+	 <input  name="id" type="hidden" value="${adminUnit.id}">
+	 Kood: <input name="kood" value="${adminUnit.kood}"><br/>
+	 Nimetus: <input name="nimetus" value="${adminUnit.nimetus}"><br/>
+	 Kommentaar: <input name="kommentaar" value="${adminUnit.kommentaar}"><br/>
 	
 	
   	<button type="submit">Salvesta</button>
@@ -33,22 +33,14 @@
   <br/>
   <form method="POST" action="muudaLiik">
   
-  	Siia tuleb Liik ${adminUnit.type}
+  <!--   TODO lihtsalt testimiseks, et toimib-->
+  ${adminUnit.id} <br/>
+  ${adminUnit.kood}<br/>
+  	Siia tuleb Liik ${adminUnit.type_id}
   	<button type="submit">Muuda Liiki</button>
   
   </form>
   
-   	Allub:
-    <select name="subordinate">
-      <c:forEach var="entry" items="${adminUnit.ageGroups}">
-        <c:set var="selected" value=""/>
-        <c:if test="${entry.key == adminUnit.type}">
-          <c:set var="selected" value="selected=\"selected\""/>
-        </c:if>
-        <option value="${entry.key}" ${selected}>${entry.value}</option>
-      </c:forEach>
-    </select>
-    
    <br/>
     
     // lisada alluvate plok

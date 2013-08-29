@@ -27,16 +27,18 @@ public class AdminUnit {
 	   private String muutja;
 	   
 	   @Temporal(TemporalType.DATE)
+	   @Column(nullable = true)
 	   private Date	 muudetud;
 	   
 	   @Column(length = 32, nullable = true)
 	   private String sulgeja;
 	   
 	   @Temporal(TemporalType.DATE)
+	   @Column(nullable = true)
 	   private Date	 suletud;
 	   
 	   @Column(length = 10, nullable = false)
-	   private String kood;
+	   private String kood; 
 	   
 	   @Column(length = 100, nullable = false)
 	   private String nimetus;
@@ -52,7 +54,7 @@ public class AdminUnit {
 	   @Column(nullable = false)
 	   private Date	 kuni;
 	   
-	   @Column(name = "riigi_admin_yksuse_lik_id") // nime asendus
+	   @Column(name = "riigi_admin_yksuse_lik_id", nullable = true) // nime asendus
 	   private Long type_id;
 	   
 	    @Override

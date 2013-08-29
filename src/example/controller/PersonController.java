@@ -30,7 +30,7 @@ public class PersonController {
     // et logimist vähemaks saada kirjutage log4j.properties failis viimasel read DEBUG
     // asemele nt. ERROR
     // samas vigade korral on logimine vägagi abiks
-
+ 
     @RequestMapping(value = "/list")
     public String personList(ModelMap model) {
         List<Person> persons = personDao.findAll();

@@ -19,8 +19,8 @@
   </c:if>
   
   
-  <form method="POST" action="form">
-  Kuupäev: <input name="typeKey" value="${date}">
+  <form method="POST" action="alluvusraport">
+  Kuupäev: <input name="date" value="${date}">
   Liik:
   <select name="type">
       <c:forEach var="entry" items="${formData.ageGroups}">
@@ -31,11 +31,22 @@
         <option value="${entry.key}" ${selected}>${entry.value}</option>
       </c:forEach>
     </select>
+    <button type="submit">Värskenda</button>
   </form>
   
-  siia alla tulevad vastused
-  <br/>
   <a href="index"><input type="submit" value="Tagasi"></a><br/>
+  
+  siia alla tulevad vastused
+  
+    <c:forEach var="adminUnit" items="${adminUnits}">
+    <!--TODO  kijutada kontroller edit-->
+    <a href="edit?id=${adminUnit.id}">${adminUnit.nimetus} ${adminUnit.kood}</a>&nbsp;
+    <!--TODO  kijutada kontroller delete-->
+    <a href="delete?id=${adminUnit.id}">Kustuta</a><br/><br/>
+    
+  </c:forEach>
+  <br/>
+  
 
 </body>
 </html>

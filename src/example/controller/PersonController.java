@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 //import javax.servlet.http.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -92,16 +92,16 @@ public class PersonController {
         return "redirect:list";
     }
 
-    @RequestMapping(value = "/counter")
-    public String counter(HttpSession session) {
-
-        Integer i = (Integer) session.getAttribute("counter");
-        if (i == null) i = 0;
-
-        session.setAttribute("counter", ++i);
-
-        return "counter";
-    }
+//    @RequestMapping(value = "/counter")
+//    public String counter(HttpSession session) {
+//
+//        Integer i = (Integer) session.getAttribute("counter");
+//        if (i == null) i = 0;
+//
+//        session.setAttribute("counter", ++i);
+//
+//        return "counter";
+//    }
 
     // kuupäev parameetrina näide
     @RequestMapping(value = "/bind") // /bind?date=2012-12-12

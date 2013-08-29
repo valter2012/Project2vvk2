@@ -34,6 +34,8 @@
   </form>
   
   siia alla tulevad vastused
+  <br/>
+  <a href="index"><input type="submit" value="Tagasi"></a><br/>
 
 </body>
 </html>

@@ -7,6 +7,8 @@
 <title>Admin üksuse liigi struktuur</title>
 </head>
 <body>
+<br/>
+<a href="index"><input type="submit" value="Tagasi"></a><br/>
 
 </body>
 </html>

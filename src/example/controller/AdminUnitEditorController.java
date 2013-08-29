@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 
-public class typeEditorController {
+public class AdminUnitEditorController {
 
-	@RequestMapping("/liigiredakt")
+	@RequestMapping("/yksuseredakt")
 	public String index(ModelMap model) {
 
 		model.addAttribute("message", "test teade");
-		return "liigiredakt";
+		return "yksuseredakt";
 
 	}
 

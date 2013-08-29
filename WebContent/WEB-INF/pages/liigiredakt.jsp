@@ -18,7 +18,7 @@
     <br/><br/>
   </c:if>
   
-  <form method="POST" action="form">
+  <form method="POST" action="liigiredakt">
   	<input type="hidden" name="id" value="${type.id}">
   	Kood: <input name="typeKey" value="${type.key}"><br/>
   	Nimetus: <input name="typeName" value="${type.name}"><br/>

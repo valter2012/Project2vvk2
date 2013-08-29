@@ -18,15 +18,16 @@
     <br/><br/>
   </c:if>
   
-  <form method="POST" action="liigiredakt">
+  <form method="POST" action="yksuseredakt">
   
 	 <input type="hidden" name="id" value="${adminUnit.id}">
 	 Kood: <input name="typeKey" value="${adminUnit.key}"><br/>
 	 Nimetus: <input name="typeName" value="${adminUnit.name}"><br/>
 	 Kommentaar: <input name="typeComment" value="${adminUnit.comment}"><br/>
 	
-	 <a href="index"><input type="submit" value="Loobu"></a><br/>
+	
   	<button type="submit">Salvesta</button>
+  	<a href="index"><input type="submit" value="Loobu"></a><br/>
   	
   </form>
   <br/>

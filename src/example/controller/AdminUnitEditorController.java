@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import example.dao.AdminUnitDao;
 import example.domain.AdminUnit;
 
-
 @Controller
 
 public class AdminUnitEditorController {

@@ -9,6 +9,10 @@
 </head>
 <body>
 
+	<div id="header">
+		<jsp:include page="header.jsp"/>
+	</div>
+
   <c:if test="${not empty errors}">
     <div style="color:red">
       <c:forEach var="error" items="${errors}">
@@ -19,26 +23,18 @@
   </c:if>
   
   <form method="POST" action="liigiredakt">
-  	<input type="hidden" name="id" value="${type.id}">
-  	Kood: <input name="typeKey" value="${type.key}"><br/>
-  	Nimetus: <input name="typeName" value="${type.name}"><br/>
-  	Kommentaar: <input name="typeComment" value="${type.comment}"><br/>
+  	<input type="hidden" name="id" value="${adminUnitType.id}">
+  	Kood: <input name="kood" value="${adminUnitType.kood}"><br/>
+  	Nimetus: <input name="nimetus" value="${adminUnitType.nimetus}"><br/>
+  	Kommentaar: <input name="kommentaar" value="${adminUnitType.kommentaar}"><br/>
   	
   	Allub:
-    <select name="subordinate">
-      <c:forEach var="entry" items="${formData.ageGroups}">
-        <c:set var="selected" value=""/>
-        <c:if test="${entry.key == type.subordinate}">
-          <c:set var="selected" value="selected=\"selected\""/>
-        </c:if>
-        <option value="${entry.key}" ${selected}>${entry.value}</option>
-      </c:forEach>
-    </select>
+
     
      <br/><br/>
 
     <input type="submit" value="Salvesta">
-    <a href="index"><input type="submit" value="Loobu"></a><br/>
+    
   	
   	
   	// lisada alluvate plok
@@ -46,11 +42,8 @@
   	
   
   </form>
-  <form method="get" action="/index">
-  	<button type="submit">Loobu</button>
-  </form>
-  
-  <button onclick="window.location.href='/'">Continue</button>
+  <a href="index"><input type="submit" value="Loobu"></a><br/>
+ 
   
 
 </body>

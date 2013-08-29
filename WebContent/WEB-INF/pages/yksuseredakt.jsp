@@ -8,6 +8,11 @@
 <title>Admin üksuse redaktor</title>
 </head>
 <body>
+
+<div id="header">
+	<jsp:include page="header.jsp"/>
+</div>
+
 ${message}
  <c:if test="${not empty errors}">
     <div style="color:red">

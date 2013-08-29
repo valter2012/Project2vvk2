@@ -7,6 +7,10 @@
 <title>Admin üksuse liigi struktuur</title>
 </head>
 <body>
+
+<div id="header">
+	<jsp:include page="header.jsp"/>
+</div>
 <br/>
 <a href="index"><input type="submit" value="Tagasi"></a><br/>
 

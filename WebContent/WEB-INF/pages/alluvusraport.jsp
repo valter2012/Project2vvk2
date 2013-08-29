@@ -9,6 +9,10 @@
 </head>
 <body>
 
+	<div id="header">
+		<jsp:include page="header.jsp"/>
+	</div>
+
  <c:if test="${not empty errors}">
     <div style="color:red">
       <c:forEach var="error" items="${errors}">

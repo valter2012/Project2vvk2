@@ -7,7 +7,9 @@
 <title>Piirivalve avaleht</title>
 </head>
 <body>
-	
+	<div id="header">
+		<jsp:include page="header.jsp"/>
+	</div>
 	
 	<br/>
 	

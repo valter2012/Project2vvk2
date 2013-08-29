@@ -36,13 +36,23 @@
   
   <a href="index"><input type="submit" value="Tagasi"></a><br/>
   
-  siia alla tulevad vastused
-  
-    <c:forEach var="adminUnit" items="${adminUnits}">
-    <!--TODO  kijutada kontroller edit-->
-    <a href="edit?id=${adminUnit.id}">${adminUnit.nimetus} ${adminUnit.kood}</a>&nbsp;
-    <!--TODO  kijutada kontroller delete-->
-    <a href="delete?id=${adminUnit.id}">Kustuta</a><br/><br/>
+  siia alla tulevad vastused:<br/>
+  <hr>
+   <c:forEach var="adminUnit" items="${adminUnits}">
+	   
+		${adminUnit.nimetus}  ${adminUnit.kood}
+	   <form method="POST" action="editAdminUnit">
+	   		<input  name="id" type="hidden" value="${adminUnit.id}">
+		 	<button type="submit">Muuda</button> 
+		 	<!--<a href="editAdminUnit?id=${adminUnit.id}"><input type="submit" value="jama"></a>-->
+	   </form>
+	   <form method="POST" action="deleteAdminUnit">
+	   		<input  name="id" type="hidden" value="${adminUnit.id}">
+		 	<button type="submit">Kustuta</button> 
+		 	<!--  <a href="deleteAdminUnit?id=${adminUnit.id}"><input type="submit" value="Kustuta"></a><br/>-->
+	   </form>
+	   
+	   <hr>
     
   </c:forEach>
   <br/>

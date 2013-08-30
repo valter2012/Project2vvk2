@@ -5,6 +5,7 @@ package example.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import example.dao.AdminUnitDao;
 import example.domain.AdminUnit;
+import example.domain.Person;
 
 
 @Controller
@@ -55,14 +57,12 @@ public class AdminUnitEditorController {
     @RequestMapping(value = "/yksuseredakt", method = RequestMethod.POST)
     public String saveForm(@ModelAttribute("adminUnit") AdminUnit adminUnit, ModelMap model) {
 
-    	
-    	
-//        List<String> errors = getValidationErrors(person);
-//        if (!errors.isEmpty()) {
-//            model.addAttribute("errors", errors);
-//            addFormData(model);
-//            return "form";
-//        }
+        List<String> errors = getValidationErrors(adminUnit);
+        if (!errors.isEmpty()) {
+            model.addAttribute("errors", errors);
+            addFormData(model);
+            return "yksuseredakt";
+        }
     	
     	// kirjutan siia need puuduvad testimiseks//
     	adminUnit.setAlates(new Date());
@@ -86,6 +86,20 @@ public class AdminUnitEditorController {
         //return "yksuseredakt";
         //return "redirect:yksuseredakt"; // läheb tühjale tagasi
     	return "redirect:alluvusraport"; // näitame parem kogu loetelu peale lisamist
+    }
+    
+    private List<String> getValidationErrors(AdminUnit adminUnit) {
+        List<String> errors = new ArrayList<String>();
+        if ("".equals(adminUnit.getKommentaar())) {
+            errors.add("Sisesta kommentaar!");
+        }
+        if ("".equals(adminUnit.getKood())) {
+            errors.add("Sisesta kood!");
+        }
+        if ("".equals(adminUnit.getNimetus())) {
+            errors.add("Sisesta nimetus!");
+        }
+        return errors;
     }
 
 }

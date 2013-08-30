@@ -4,7 +4,9 @@ package example.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -29,14 +31,20 @@ public class typeEditorController {
 	@RequestMapping("/liigiredakt")
 	public String index(ModelMap model) {
 
-		model.addAttribute("message", "test teade");
+		//model.addAttribute("message", "test teade");
 		return "liigiredakt";
 
 	}
 	
     @RequestMapping(value = "/liigiredakt", method = RequestMethod.POST)
-    public String saveForm(@ModelAttribute("adminUnit") AdminUnitType adminUnitType, ModelMap model) {
-
+    public String saveForm(@ModelAttribute("adminUnitType") AdminUnitType adminUnitType, ModelMap model) {
+    	
+    	List<String> errors = getValidationErrors(adminUnitType);
+        if (!errors.isEmpty()) {
+            model.addAttribute("errors", errors);
+            return "liigiredakt";
+        }
+        
     	adminUnitType.setAlates(new Date());
     	try {
     		Date toDate = new SimpleDateFormat("yyyy/MM/dd").parse("9999/12/24");
@@ -51,6 +59,19 @@ public class typeEditorController {
     	model.addAttribute("message", "Admin üksus salvestatud:");
        
     	return "redirect:liigistrukt"; 
+    }
+    private List<String> getValidationErrors(AdminUnitType adminUnitType) {
+        List<String> errors = new ArrayList<String>();
+        if ("".equals(adminUnitType.getKommentaar())) {
+            errors.add("Sisesta kommentaar!");
+        }
+        if ("".equals(adminUnitType.getKood())) {
+            errors.add("Sisesta kood!");
+        }
+        if ("".equals(adminUnitType.getNimetus())) {
+            errors.add("Sisesta nimetus!");
+        }
+        return errors;
     }
 
 }

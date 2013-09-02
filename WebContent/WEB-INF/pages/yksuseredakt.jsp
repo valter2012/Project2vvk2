@@ -26,29 +26,61 @@ ${message}
   
   <form method="POST" action="yksuseredakt">
   		
-	 <input  name="id" type="hidden" value="${adminUnit.id}">
-	 Kood: <input name="kood" value="${adminUnit.kood}"><br/>
-	 Name: <input name="nimetus" value="${adminUnit.nimetus}"><br/>
-	 Kommentaar: <input name="kommentaar" value="${adminUnit.kommentaar}"><br/>
+	<input  name="id" type="hidden" value="${adminUnit.id}">
+	Kood: <input name="kood" value="${adminUnit.kood}"><br/>
+	Name: <input name="nimetus" value="${adminUnit.nimetus}"><br/>
+	Kommentaar: <input name="kommentaar" value="${adminUnit.kommentaar}"><br/>
+	Allub:<br/>
 	
+	Liik: 
+  	<select name="adminUnitTypeSelect">
+      <c:forEach var="entry" items="${adminUnitTypes}">
+        <c:set var="selected" value=""/>
+        <c:if test="${entry.key == adminUnitType.id}">
+          <c:set var="selected" value="selected=\"selected\""/>
+        </c:if>
+        <option value="${entry.key}" ${selected}>${entry.value}</option>
+      </c:forEach>
+    </select>
+	
+	<br/>
   	<button type="submit" value="Salvesta">Salvesta</button>
   	<a href="index"><input type="submit" value="Tagasi"></a><br/>
   	
   </form>
-  <br/>
-  <form method="POST" action="muudaLiik">
-  
-  <!--   TODO lihtsalt testimiseks, et toimib-->
-  ${adminUnit.id} <br/>
-  ${adminUnit.kood}<br/>
-  	Siia tuleb Liik ${adminUnit.type_id}
-  	<button type="submit">Muuda Liiki</button>
-  
-  </form>
-  
-   <br/>
-    
-    // lisada alluvate plok
 
+   <br/>
+  Alluvad:
+    // lisada alluvate plok<br/><br/>
+    
+    <form method="POST" action="addSub">
+    	<input  name="headUnitId" type="hidden" value="${adminUnit.id}">
+	    Lisa: 
+	  	<select name="subUnitId">
+	      <c:forEach var="entry" items="${adminUnits}">
+	        <c:set var="selected" value=""/>
+	        <option value="${entry.key}" ${selected}>${entry.value}</option>
+	      </c:forEach>
+	    </select>
+	    <button type="submit" value="Lisa">Lisa</button>
+    </form>
+     <br/>
+    <!--   TODO lihtsalt testimiseks, et toimib
+    All Data Block for test <br/>
+    Liik: ${adminUnit.type_id} -- ${adminUnitType.nimetus}<br/>
+    Id: ${adminUnit.id} <br/>
+  	Kood: ${adminUnit.kood}<br/>
+  	Nimetus: ${adminUnit.nimetus}<br/>
+  	Kommentaar: ${adminUnit.kommentaar}<br/>
+  	Liik: ${adminUnit.type_id}<br/>
+  	avaja: ${adminUnit.avaja}<br/>
+  	avatud: ${adminUnit.avatud}<br/>
+  	muutja: ${adminUnit.muutja}<br/>
+  	muudetud: ${adminUnit.muudetud}<br/>
+  	sulgeja: ${adminUnit.sulgeja}<br/>
+  	suletud: ${adminUnit.suletud}<br/>
+  	alates: ${adminUnit.suletud}<br/>
+  	kuni: ${adminUnit.suletud}<br/>
+-->
 </body>
 </html>

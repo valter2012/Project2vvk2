@@ -47,7 +47,7 @@ public class AdminUnit {
 	   private String kommentaar;
 	   
 	   @Temporal(TemporalType.DATE)
-	   @Column(nullable = false)
+	   @Column(nullable = true)
 	   private Date	 alates;
 	   
 	   @Temporal(TemporalType.DATE)

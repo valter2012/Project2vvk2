@@ -13,14 +13,7 @@
 		<jsp:include page="header.jsp"/>
 	</div>
 
- <c:if test="${not empty errors}">
-    <div style="color:red">
-      <c:forEach var="error" items="${errors}">
-        <c:out value="${error}"></c:out><br />
-      </c:forEach>
-    </div>
-    <br/><br/>
-  </c:if>
+
   
   
   <form method="POST" action="alluvusraport">

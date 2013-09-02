@@ -29,7 +29,7 @@ public class typeEditorController {
     private AdminUnitTypeDao adminUnitTypeDao;
 
 	@RequestMapping("/liigiredakt")
-	public String index(ModelMap model) {
+	public String typeEditor(ModelMap model) {
 
 		//model.addAttribute("message", "test teade");
 		return "liigiredakt";
@@ -56,7 +56,6 @@ public class typeEditorController {
     	adminUnitType.setAvatud(new Date());
     	
     	adminUnitTypeDao.store(adminUnitType);
-    	model.addAttribute("message", "Admin üksus salvestatud:");
        
     	return "redirect:liigistrukt"; 
     }

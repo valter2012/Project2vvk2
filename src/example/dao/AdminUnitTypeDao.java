@@ -24,7 +24,7 @@ public class AdminUnitTypeDao {
     
     @Transactional(readOnly = true)
     public List<AdminUnitType> findAll() {
-        TypedQuery<AdminUnitType> query = em.createQuery("from AdminUnit", AdminUnitType.class);
+        TypedQuery<AdminUnitType> query = em.createQuery("from AdminUnitType", AdminUnitType.class);
         return query.getResultList();
     }
     

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import example.domain.AdminUnit;
+import example.domain.AdminUnitSubord;
 
 @Repository
 public class AdminUnitDao {
@@ -26,6 +27,7 @@ public class AdminUnitDao {
     
     @Transactional(readOnly = true)
     public List<AdminUnit> findAll() {
+    	//TODO peaks välistama ka suletud
         TypedQuery<AdminUnit> query = em.createQuery("from AdminUnit", AdminUnit.class);
         return query.getResultList();
     }

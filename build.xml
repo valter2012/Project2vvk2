@@ -9,9 +9,15 @@
 	<property name="classes.dir" location="${build.dir}/classes" />
 	<property name="web_content.dir" location="WebContent" />
 	<property name="lib.dir" location="${web_content.dir}/WEB-INF/lib" />
-	<property name="lib.dir" location="${web_content.dir}/WEB-INF/lib" />
 	<property name="war.name" value="Project2vvk2.war" />
 	<property name="war.path" location="${dist.dir}/${war.name}" />  
+
+	<target name="war" depends="compile">
+		<war destfile="${war.path}" webxml="${web_content.dir}/WEB-INF/web.xml">
+		<classes dir="${classes.dir}" />
+		<fileset dir="${web_content.dir}" excludes="**/servlet-api.jar" />
+		</war>
+	</target>
 	
 	
 	<path id="compile.classpath">
@@ -21,7 +27,7 @@
 		</fileset>
 	</path>
 	
-	
+	<!--
 	<target name="war" depends="compile">
 		<mkdir dir="${dist.dir}" />
 		
@@ -33,13 +39,26 @@
 			<fileset dir="${web_content.dir}" excludes="**/servlet-api.jar" />
 		</war>
 	</target>
+	-->
+	
+
+
+	
+	
 	
     
-	<target name="compile" depends="clean, init">
+	<!--<target name="compile" depends="clean, init">
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" encoding="UTF-8" includeantruntime="false">
 			<classpath refid="compile.classpath" />
 		</javac>
+	</target>-->
+	
+	<target name="compile" depends="clean, init" >
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+			<classpath refid="compile.classpath" />
+		</javac>
 	</target>
+
 			
 	    
 	<target name="init">
@@ -50,5 +69,8 @@
 	<target name="clean">
 		<delete dir="${build.dir}" />
 	</target>
+	
+
+	
       
 </project>

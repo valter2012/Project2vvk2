@@ -54,7 +54,7 @@ public class PersonController {
         map.put(1, "Laps");
         map.put(2, "Täiskasvanu");
         map.put(3, "Pensionär");
-        FormData formData = new FormData();
+        UnitFormData formData = new UnitFormData();
         formData.setAgeGroups(map);
 
         model.addAttribute("formData", formData);
